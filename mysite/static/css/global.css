@@ -1,0 +1,27 @@
+:root {
+  /* fonts */
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-xs: 16px;
+  --font-size-sm: 20px;
+  --font-size-base: 24px;
+  --font-size-lg: 32px;
+  --font-size-xl: 36px;
+  --font-size-2xl: 40px;
+  --font-size-3xl: 64px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-100: #89aeb7;
+  --color-gray-200: rgba(0, 0, 0, 0.76);
+  --color-gray-300: rgba(0, 0, 0, 0.05);
+  --color-gray-400: rgba(0, 0, 0, 0.57);
+  --color-gold: rgba(241, 207, 29, 0.82);
+  --color-indigo: #1278d6;
+
+  /* border radiuses */
+  --br-sm: 20px;
+  --br-md: 30px;
+}
