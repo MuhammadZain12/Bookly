@@ -1,0 +1,43 @@
+{% extends 'mysite/tbase.html' %}
+{% load static %}
+{% block title%}hotel.name{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'mysite/css/hotel.css' %}">{% endblock %}
+{% block content %}
+<br><br>
+<h2 class="heading"><u><b>{{hotel.name}} :</b></u></h2>
+<br>
+<div class="hotel-images">
+<img class="hotel-photo" src={{hotel.image2.url}} alt="...">
+<img class="hotel-photo" src={{hotel.image3.url}} alt="...">
+<img class="hotel-photo" src={{hotel.image4.url}} alt="...">
+</div>
+<hr class="ending">
+<img class="side-image" src={{hotel.image5.url}} alt="...">
+<div class="description img-fluid">
+  <p>{{hotel.description|linebreaks}}</p>
+</div>
+<br>
+<h3 class="heading"><u>Available Rooms : </u></h3>
+<br>
+<div class="available-rooms">
+  {% for room in rooms|dictsort:'type' %}
+  {% ifchanged room.type %}
+  <div class="card mb-3" style="max-width: 680px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ room.image.url }}" class="image-size img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{room.type}}</h5>
+          <p class="card-text">{{room.small_description}}</p>
+          <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+        </div>
+        <a href="{% url 'mysite:room' city=hotel.city room=room.id hotel=hotel.id%}" class="btn btn-primary my-button">View more</a>
+      </div>
+    </div>
+  </div>
+  {% endifchanged %}
+  {% endfor %}
+</div>
+{% endblock %}

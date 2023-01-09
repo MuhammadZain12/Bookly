@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'mysite/css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'mysite/css/login.css' %}" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
@@ -64,13 +64,14 @@
           <p class="user-error">{{data}}</p>
           {% endif %}
           <input
-            name="username"
+            type="email"
+            name="email"
             class="rectangle-input7"
-            placeholder="  Enter your Username "
+            placeholder="  Enter your Email "
             required
           />
         </form>
-          <div class="email-address1">Username</div>
+          <div class="email-address1">Email</div>
           <div class="login4">Login</div>
         </div>
         <a class="bookly6" href="{% url 'mysite:home' %}">Bookly</a>

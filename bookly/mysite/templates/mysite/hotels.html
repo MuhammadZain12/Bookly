@@ -1,0 +1,54 @@
+{% extends 'mysite/tbase.html' %}
+{% load static %}
+{% with ''|add:title|add:' hotels' as complete_title %}
+{% block title %}{{complete_title}}{% endblock %}
+{% endwith %}
+{% block css %} <link rel="stylesheet" href="{% static 'mysite/css/hotels.css' %}"> {% endblock %}
+
+{% block content %}
+
+<div class="px-300-wide">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        {% with 'mysite/website/'|add:title|add:'1.jpg' as first_image %}
+        <img src="{% static first_image %}" class="d-block w-100" alt="...">
+        {% endwith %}
+      </div>
+      <div class="carousel-item">
+        {% with 'mysite/website/'|add:title|add:'2.jpg' as second_image %}
+        <img src="{% static second_image %}" class="d-block w-100" alt="...">
+        {% endwith %}
+      </div>
+      <div class="carousel-item">
+        {% with 'mysite/website/'|add:title|add:'3.jpg' as third_image %}
+        <img src="{% static third_image %}" class="d-block w-100" alt="...">
+        {% endwith %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---->
+<div class="all-hotels">
+{% for hotel in hotel_data %}
+<div class="card mb-3" style="max-width: 680px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ hotel.image1.url }}" class="image-size img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{hotel.name}}</h5>
+        <p class="card-text">{{hotel.small_description}}</p>
+        <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+      </div>
+      <a href="{% url 'mysite:hotel' city=title id=hotel.id %}" class="btn btn-primary my-button">View Hotel</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+  
+{% endblock %}
