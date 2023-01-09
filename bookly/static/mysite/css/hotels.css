@@ -1,0 +1,24 @@
+.px-300-wide{
+  width: 1340px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.all-hotels{
+  margin-left: 500px;
+}
+
+.my-button{
+  margin-left: 300px;
+  padding-bottom: 10px;
+}
+
+.image-size{
+  max-height: 180px;
+  min-height: 180px;
+  max-width: 200px;
+  min-width: 200px;
+  border-radius: 10px;
+}

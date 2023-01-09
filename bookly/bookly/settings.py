@@ -15,14 +15,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR2 = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print("=====================================")
-print(BASE_DIR)
-print("=====================================")
 TEMPLATE_DIR = os.path.join(BASE_DIR2,'mysite\\templates\\')
 TEMPLATE_DIR_MYSITE=os.path.join(TEMPLATE_DIR,'mysite\\')
-print("=====================================")
-print(TEMPLATE_DIR)
-print("=====================================")
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -59,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bookly.urls'
+AUTH_USER_MODEL='mysite.User'
+AUTHENTICATION_BACKENDS=['mysite.auth_backend.EmailBackend']
 
 TEMPLATES = [
     {
@@ -125,9 +123,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS=[
+    # os.path.join(BASE_DIR,'mysite\\static\\'),
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

@@ -1,0 +1,91 @@
+.heading{
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.card-header{
+  width: 150px;
+}
+
+/* .booking-div{
+  margin-left: 100px;
+} */
+
+.my-border{
+  border-radius:0%;
+}
+
+.text-class{
+  text-align: center;
+}
+
+.card-header:first-child {
+  border-radius:0%;
+}
+
+.night-selector-div{
+  width: 30px;
+}
+
+.room-image{
+  float: inline-start;
+  max-width: 570px;
+  min-width: 570px;
+  max-height: 320px;
+  min-height: 320px;
+  padding-right: 30px;
+  margin-left: 50px;
+}
+
+.room-description{
+  padding-top: 30px;
+  padding-bottom: 10px;
+  float: inline-start;
+}
+.other-facilities{
+  /* max-height: 320px; */
+  width:80%;
+  border-right: 7px;
+  border-bottom: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  padding-right: 20px;
+  border-color:#C4C4C4;
+  border-style:solid;
+}
+
+.room-facilities{
+  max-height: 320px;
+  margin-left: 73%;
+  margin-right: 10px;
+  padding-top: 30px;
+}
+
+.separator-div{
+  float: left;
+  height: 320px;
+  border-left: 7px;
+  border-bottom: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  padding-right: 20px;
+  width: 0px;
+  opacity: 30%;
+  border-style:solid;
+}
+
+.room-data{
+  margin-left: 70%;
+  /* border-right: 7px;
+  border-bottom: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  padding-right: 20px;
+  border-color:#C4C4C4;
+  border-style:solid; */
+}
+.booking-pannel{
+  margin-left: 50px;
+  max-width:900px;
+}
+

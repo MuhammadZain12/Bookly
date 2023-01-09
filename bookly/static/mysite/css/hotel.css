@@ -1,0 +1,51 @@
+.hotel-images{
+  margin-left:110px;
+}
+.heading{
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.hotel-photo{
+  padding:20px;
+  height: 300px;
+  width: 370px;
+}
+
+.ending{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 120px;
+  margin: auto;
+  size: 40px;
+  border-width:7px;
+}
+.description{
+  width: 800px;
+  padding-left: 50px;
+}
+
+.available-rooms{
+  margin-left: 50px;
+}
+
+.my-button{
+  margin-left: 300px;
+  padding-bottom: 10px;
+}
+
+.image-size{
+  max-height: 170px;
+  min-height: 170px;
+  max-width: 230px;
+  min-width: 230px;
+  border-radius: 10px;
+}
+
+.side-image{
+  padding-top: 20px;
+  margin-right: 80px;
+  float: right;
+  height: 460px;
+  width: 420px;
+}
