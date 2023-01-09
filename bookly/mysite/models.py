@@ -137,9 +137,10 @@ class Booking(models.Model):
     def save(self,*args,**kwargs):
         self.id=self.hotel.id+self.room.id+self.user.email
         if self.is_verified:
-            self.room.isBooked(True)
+            self.room.is_available=False
         else:
-            self.room.isBooked(False)    
+            self.room.is_available=True 
+        self.room.save()   
         return super().save(*args,**kwargs)    
     
     def __str__(self) -> str:

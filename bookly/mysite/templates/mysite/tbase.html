@@ -39,7 +39,7 @@
           {% if user.is_authenticated %}
           <a href="{% url 'logout' %}"><button class="btn btn-outline-dark" type="button">Logout</button></a>          
           <span><div class="container px-2"></div></span>
-          <button class="btn btn-outline-dark" type="submit">My Bookings</button>
+          <a href="{% url 'mysite/my-bookings.html' %}"><button class="btn btn-outline-dark" type="submit">My Bookings</button></a>
           {% else %}
           <a href="{% url 'login' %}"><button class="btn btn-outline-dark" type="button">Login</button></a>
           <span><div class="container px-2"></div></span>

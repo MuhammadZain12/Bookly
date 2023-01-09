@@ -28,7 +28,7 @@ class RoomModel(admin.ModelAdmin):
   search_fields=['id','type']
 
 class BookingModel(admin.ModelAdmin):
-  list_display=['id','room','hotel','user','nights','is_verified']
+  list_display=['room','hotel','user','nights','is_verified']
   list_editable=['is_verified',]
   list_filter=['is_verified',]
   search_fields=['user',]
