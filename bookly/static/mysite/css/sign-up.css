@@ -79,32 +79,41 @@ body {
   border: 0;
   background-color: var(--color-white);
   position: absolute;
-  top: 533px;
+  top: 500px;
   left: 329px;
   width: 273px;
   height: 40px;
 }
 .password {
   position: absolute;
-  top: 541px;
+  top: 510px;
   left: 65px;
   font-weight: 600;
   display: inline-block;
 }
+
+.error{
+  position: absolute;
+  top: 545px;
+  left: 240px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+
 .rectangle-input2 {
   border: 0;
   background-color: var(--color-white);
   position: absolute;
-  top: 416px;
-  left: 479px;
+  top: 400px;
+  left: 329px;
   width: 123px;
   height: 40px;
 }
-.age,
-.female {
+.age{
   position: absolute;
-  top: 424px;
-  left: 402px;
+  top: 410px;
+  left: 65px;
   font-weight: 600;
   display: inline-block;
 }
