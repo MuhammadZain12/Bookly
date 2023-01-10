@@ -1,0 +1,16 @@
+{% extends 'mysite/tbase.html' %}
+{% block content %}
+<div style="margin: 4%;padding-top: 2%;padding-bottom: 14%;">
+<h2 style="color: dodgerblue;">Are you sure you want to delete your booking of :</h2>
+<br>
+<h4><strong>hotel : </strong>{{object.hotel.name}}</h4>
+<h4><strong>Room : </strong>{{object.room.type}}</h4>
+<h4><strong>Nights : </strong>{{object.nights}}</h4>
+<br>
+<form method="post">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" class="btn btn-danger" value="Confirm">
+</form>
+</div>
+{% endblock %}

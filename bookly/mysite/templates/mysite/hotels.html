@@ -30,8 +30,10 @@
 </div>
 
 <!---->
-<div class="all-hotels">
+<h2 class="heading">{{title}}</h2>
+<div class="row row-cols-1 row-cols-md-2 mb2" style="margin-left:2% ;max-width: 95%;">
 {% for hotel in hotel_data %}
+<div class="col mb-2">
 <div class="card mb-3" style="max-width: 680px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -46,6 +48,7 @@
       <a href="{% url 'mysite:hotel' city=title id=hotel.id %}" class="btn btn-primary my-button">View Hotel</a>
     </div>
   </div>
+</div>
 </div>
 {% endfor %}
 </div>

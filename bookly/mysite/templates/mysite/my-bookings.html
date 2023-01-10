@@ -1,2 +1,42 @@
 {% extends "mysite/tbase.html" %}
+{% load static %}
+{% load booking_filters %}
+{% block css %} <link rel="stylesheet" href="{% static 'mysite/css/my-bookings.css' %}"> {% endblock %}
+{% block content %}
+<h3 class="title">Your Bookings</h3>
+{% if bookings %}
+  <div class="bookings-pannel">
+    <div class="accordion" id="accordionExample">
+      {% for booking in bookings %}
+        <div class="accordion-item">
+          {% with accordian_id='heading'|formId:forloop.counter0 collapse_id='collapse'|formId:forloop.counter0 collapse_target='#collapse'|formId:forloop.counter0 payment=booking.room.price|multiply:booking.nights %}
+          <h2 class="accordion-header" id={{accordian_id}}>
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={{collapse_target}} aria-expanded="true" aria-controls={{collapse_id}}>
+              {{booking.hotel.name}} / {{booking.room.type}}
+            </button>
+          </h2>
+          <div id={{collapse_id}} class="accordion-collapse collapse" aria-labelledby={{accordian_id}} data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="">
+                <p class=""><strong>Hotel : </strong>{{booking.hotel.name}}&emsp;&emsp;&emsp;</p>
+                <p class=""><strong>Room : </strong>{{booking.room.type}}&emsp;&emsp;&emsp;</p>
+                <p class=""><strong>Nights : </strong>{{booking.nights}}&emsp;&emsp;&emsp;</p>
+                <p class=""><strong>Total Payment : </strong>{{payment}}&emsp;&emsp;&emsp;</p>
+                <a href="{% url 'mysite:delete-booking' user=user.email pk=booking.id %}"><button class="btn btn-primary" type="button">Cancel</button></a>
+              </div>
+            </div>
+          </div>
+          {% endwith %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+<h5 class="no-booking" style="padding-bottom: 19%;text-align: center;color: dodgerblue;">You currently have no bookings to show</h5>
+{% endif %}
+{% endblock %}
 
+{% block script %}
+<script>
+</script>
+{% endblock %}

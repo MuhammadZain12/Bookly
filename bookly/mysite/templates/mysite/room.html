@@ -10,28 +10,28 @@
   <img src={{room.image.url}} class="room-image" alt="">
   <div class="separator-div"></div>
   <div class="room-data" style="width: 300px;">
-    <h4>{{room.type}} : </h4>
+    <h4 style="color: dodgerblue;">{{room.type}} : </h4>
     {{room.description|linebreaks}}
   </div>
 </div>
 <div class="room-facilities">
   <div class="other-facilities">
-    <h5>Other Facilities : </h5>
+    <h5 style="color: dodgerblue;">Other Facilities : </h5>
     {{room.facilities|linebreaks}}
   </div>
 </div>
 
   <div class="booking-pannel">
-  <h4>Book Now : </h4>
+  <h4 style="color: dodgerblue;">Book Now : </h4>
   <form method="post" target="hiddenFrame"> 
   <div class="card border-light mb-3 booking-div" style="max-width: 900px;">
     <div class="row g-2">
-    <div class="col-2 text-class bg-primary text-white card-header">Room</div>
-    <div class="col-2 text-class bg-primary text-white card-header">Adults</div>
-    <div class="col-2 text-class bg-primary text-white card-header">Nights</div>
-    <div class="col-2 text-class bg-primary text-white card-header">No of Rooms</div>
-    <div class="col-2 text-class bg-primary text-white card-header">Price</div>
-    <div class="col bg-primary card-header"></div>
+    <div class="col-2 text-class bg-info text-white card-header">Room</div>
+    <div class="col-2 text-class bg-info text-white card-header">Adults</div>
+    <div class="col-2 text-class bg-info text-white card-header">Nights</div>
+    <div class="col-2 text-class bg-info text-white card-header">No of Rooms</div>
+    <div class="col-2 text-class bg-info text-white card-header">Price</div>
+    <div class="col bg-info card-header"></div>
     </div>
     <div class="card-body row g-5">
       <p class="card-header text-class col-2">{{room.type}}</p>
@@ -57,12 +57,16 @@
             Book
           </button>
           {% endif %} -->
+          {% if user.is_authenticated %}
           {% if available_count != 0 %}
-          <button type="submit" id="liveToastBtn" onclick="setType();alertFunc()" class="book-button text-class btn btn-primary" style="height: 40px;border-radius: 0px ;padding-left: 20px;padding-right: 20px;">
+          <button type="submit" id="liveToastBtn" onclick="setType();alertFunc()" class="book-button text-class btn btn-info" style="color: white;height: 40px;border-radius: 0px ;padding-left: 20px;padding-right: 20px;">
             Book
           </button>
           {% else %}
           <p>No room available for now</p>
+          {% endif %}
+          {% else %}
+          <p>Login For Booking</p>
           {% endif %}
       </div>
     </div>
