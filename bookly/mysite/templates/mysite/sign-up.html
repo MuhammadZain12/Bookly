@@ -5,14 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/sign-up.css' %}" />
+    <link rel="stylesheet" href="{% static 'mysite/css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'mysite/css/sign-up.css' %}" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
     />
   </head>
   <body>
+    <form method="post">
+    {% csrf_token %}
     <div class="sign-up3">
       <div class="group-div10">
         <div class="group-div10">
@@ -21,43 +23,46 @@
         </div>
         <div class="group-div11">
           <div class="rectangle-div17"></div>
-          <button class="group-button5">
+          <button type="submit" class="group-button5">
             <div class="rectangle-div18"></div>
             <div class="submit1">Submit</div></button
-          ><input
+          >
+          {% if error %}
+          <h3 class="error">⚠️ Email Already In Use</h3>
+          {% endif %}
+          <input
             class="rectangle-input1"
             type="password"
+            name="password"
             placeholder="Enter Password"
-            minlength="{8}"
+            minlength="8"
             required
           />
           <div class="password">Password</div>
           <input
             class="rectangle-input2"
             type="number"
+            name="age"
+            min="18"
+            max="90"
             placeholder="Your Age"
-            required
           />
           <div class="age">Age</div>
-          <div class="female">Female</div>
-          <input class="ellipse-input" type="radio" />
-          <div class="male">Male</div>
-          <input class="ellipse-input1" type="radio" />
-          <div class="gender">Gender</div>
           <input
             class="rectangle-input3"
-            type="number"
+            type="text"
+            name="cnic"
             placeholder="Enter CNIC without dash"
-            min="{11}"
-            max="{11}"
-            maxlength="{11}"
-            minlength="{11}"
+            pattern="\d*"
+            maxlength="11"
+            minlength="11"
             required
           />
           <div class="cnic-no">CNIC No</div>
           <input
             class="rectangle-input4"
             type="email"
+            name="email"
             placeholder="Enter you Email"
             required
           />
@@ -65,6 +70,7 @@
           <input
             class="rectangle-input5"
             type="text"
+            name="name"
             placeholder="Enter your name"
             required
           />
@@ -72,7 +78,8 @@
           <div class="sign-up4">Sign Up</div>
         </div>
       </div>
-      <a class="bookly5" href="./home.html" data-animate-on-scroll>Bookly</a>
+    </form>
+      <a class="bookly5" href="{% url 'mysite:home' %}" data-animate-on-scroll>Bookly</a>
     </div>
 
     <script>

@@ -4,6 +4,8 @@
 .heading{
   padding-top: 20px;
   padding-left: 50px;
+  color: dodgerblue;
+  text-align: center;
 }
 
 .hotel-photo{
@@ -26,7 +28,7 @@
 }
 
 .available-rooms{
-  margin-left: 50px;
+  margin-left: 1%;
 }
 
 .my-button{
@@ -40,6 +42,7 @@
   max-width: 230px;
   min-width: 230px;
   border-radius: 10px;
+  padding-right: 4px;
 }
 
 .side-image{

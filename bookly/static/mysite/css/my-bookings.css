@@ -1,0 +1,23 @@
+.bookings-pannel{
+  margin-top: 4%;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 40px;
+}
+
+.title{
+  padding-top: 3%;
+  text-align: center;
+  color: dodgerblue;
+}
+
+.data{
+  display: inline-block;
+}
+
+.no-booking{
+  padding-bottom: 15%;
+  padding-top: 13%;
+  text-align: center;
+  color: dodgerblue;
+}

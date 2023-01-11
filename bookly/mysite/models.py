@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.base_user import AbstractBaseUser,BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
-
 # Create your models here.
 
 
@@ -133,13 +132,15 @@ class Booking(models.Model):
     nights=models.IntegerField()
     id=models.CharField(primary_key=True,max_length=50)
     is_verified=models.BooleanField('verified',default=False)
+    time=models.DateTimeField(default=timezone.now)
 
     def save(self,*args,**kwargs):
         self.id=self.hotel.id+self.room.id+self.user.email
         if self.is_verified:
-            self.room.isBooked(True)
+            self.room.is_available=False
         else:
-            self.room.isBooked(False)    
+            self.room.is_available=True 
+        self.room.save()   
         return super().save(*args,**kwargs)    
     
     def __str__(self) -> str:

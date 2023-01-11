@@ -7,22 +7,49 @@
 
 {% block content %}
 
+
+
 <div class="px-300-wide">
+  <div class="container-search">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form method="post" class="card card-sm">
+                              {% csrf_token %}
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input name="search" class="form-control form-control-lg form-control-borderless" type="text" placeholder="Search Hotels in {{title}}">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         {% with 'mysite/website/'|add:title|add:'1.jpg' as first_image %}
-        <img src="{% static first_image %}" class="d-block w-100" alt="...">
+        <img src="{% static first_image %}" class="d-block w-100" style="max-width: 1300px;min-width:1300px;max-height: 392px;min-height: 392px;" alt="...">
         {% endwith %}
       </div>
       <div class="carousel-item">
         {% with 'mysite/website/'|add:title|add:'2.jpg' as second_image %}
-        <img src="{% static second_image %}" class="d-block w-100" alt="...">
+        <img src="{% static second_image %}" class="d-block w-100" style="max-width: 1300px;min-width:1300px;max-height: 392px;min-height: 392px;" alt="...">
         {% endwith %}
       </div>
       <div class="carousel-item">
         {% with 'mysite/website/'|add:title|add:'3.jpg' as third_image %}
-        <img src="{% static third_image %}" class="d-block w-100" alt="...">
+        <img src="{% static third_image %}" class="d-block w-100" style="max-width: 1300px;min-width:1300px;max-height: 392px;min-height: 392px;" alt="...">
         {% endwith %}
       </div>
     </div>
@@ -30,8 +57,13 @@
 </div>
 
 <!---->
-<div class="all-hotels">
+<h2 class="heading">{{title}}</h2>
+{% if message %}
+<h4 class="search-result">{{message}}</h4>
+{% endif %}
+<div class="row row-cols-1 row-cols-md-2 mb2" style="margin-left:2% ;max-width: 95%;padding-bottom: 4%;">
 {% for hotel in hotel_data %}
+<div class="col mb-2">
 <div class="card mb-3" style="max-width: 680px;">
   <div class="row g-0">
     <div class="col-md-4">
@@ -46,6 +78,7 @@
       <a href="{% url 'mysite:hotel' city=title id=hotel.id %}" class="btn btn-primary my-button">View Hotel</a>
     </div>
   </div>
+</div>
 </div>
 {% endfor %}
 </div>

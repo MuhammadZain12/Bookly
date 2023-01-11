@@ -4,7 +4,7 @@
 {% block css %}<link rel="stylesheet" href="{% static 'mysite/css/hotel.css' %}">{% endblock %}
 {% block content %}
 <br><br>
-<h2 class="heading"><u><b>{{hotel.name}} :</b></u></h2>
+<h1 class="heading">{{hotel.name}}</h1>
 <br>
 <div class="hotel-images">
 <img class="hotel-photo" src={{hotel.image2.url}} alt="...">
@@ -17,12 +17,13 @@
   <p>{{hotel.description|linebreaks}}</p>
 </div>
 <br>
-<h3 class="heading"><u>Available Rooms : </u></h3>
+<h4 class="heading">Available Rooms</h4>
 <br>
-<div class="available-rooms">
+<div class="row row-cols-1 row-cols-md-2 mb-2 available-rooms">
   {% for room in rooms|dictsort:'type' %}
   {% ifchanged room.type %}
-  <div class="card mb-3" style="max-width: 680px;">
+  <div class="col mb-2">
+  <div class="card mb-1" style="max-width: 680px;">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{ room.image.url }}" class="image-size img-fluid rounded-start" alt="...">
@@ -37,6 +38,7 @@
       </div>
     </div>
   </div>
+</div>
   {% endifchanged %}
   {% endfor %}
 </div>

@@ -21,8 +21,14 @@
 
 .heading{
   padding-left: 30px;
+  color: dodgerblue;
 }
 
 .local-card{
   padding-right: 20px;
+}
+
+.small-image-size{
+  max-height: 350px;
+  max-width: 200px;
 }

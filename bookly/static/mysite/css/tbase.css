@@ -6,6 +6,11 @@
 }
 
 .copyright{
-  height: 70px;
+  height: 100%;
+  bottom: 0;
+  width: 100%;
 }
 
+.check:hover{
+  color: white;
+}
