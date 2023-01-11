@@ -18,11 +18,16 @@
           <div id={{collapse_id}} class="accordion-collapse collapse" aria-labelledby={{accordian_id}} data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <div class="">
-                <p class=""><strong>Hotel : </strong>{{booking.hotel.name}}&emsp;&emsp;&emsp;</p>
-                <p class=""><strong>Room : </strong>{{booking.room.type}}&emsp;&emsp;&emsp;</p>
-                <p class=""><strong>Nights : </strong>{{booking.nights}}&emsp;&emsp;&emsp;</p>
-                <p class=""><strong>Total Payment : </strong>{{payment}}&emsp;&emsp;&emsp;</p>
-                <a href="{% url 'mysite:delete-booking' user=user.email pk=booking.id %}"><button class="btn btn-primary" type="button">Cancel</button></a>
+                <p class=""><strong>Hotel : </strong>{{booking.hotel.name}}</p>
+                <p class=""><strong>Room : </strong>{{booking.room.type}}</p>
+                <p class=""><strong>Nights : </strong>{{booking.nights}}</p>
+                <p class=""><strong>Total Payment : </strong>{{payment}}</p>
+                {% if booking.is_verified %}
+                <button class="btn btn-lg btn-danger" disabled type="button">Cancel</button>
+                <p class="data" style="padding-left: 2%;">✔ Verified</p>
+                {% else %}
+                <a href="{% url 'mysite:delete-booking' user=user.email pk=booking.id %}"><button class="btn btn-danger" type="button">Cancel</button></a>
+                {% endif %}              
               </div>
             </div>
           </div>
