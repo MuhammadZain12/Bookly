@@ -27,6 +27,8 @@ Admins are given platform for adding more hotels, verify booking, verify custome
 
 * `user/booking approval` : Admin should be able to approve or decline user or booking.
 
+* `email` : System will automatically send email to user about his booking, on his provided email-address.
+
 ### Tools & Technologies ⚒️
 <br>
 
